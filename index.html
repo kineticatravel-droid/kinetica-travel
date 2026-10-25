@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1A1A1A">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kinetica Travel">
+<meta property="og:description" content="Cricket, golf, hiking and safari tours in Rwanda, run from Kigali.">
+<meta property="og:image" content="og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<title>Kinetica Travel</title>
+<meta name="description" content="Kinetica Travel: cricket, golf, hiking and safari tours in Rwanda, run from Kigali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap">
+<style>
+/* Layout: full-bleed photography bands alternating with quiet white and soft-terracotta rooms; the open "C" ring is the one recurring device. */
+:root{
+  --terra:#B85C38; --terra-deep:#9a4a2b; --terra-tint:#F3E4DD; --terra-wash:#FAF4F1;
+  --ink:#1A1A1A; --ink-2:#454545; --grey:#7a7471; --line:#e7e0dc; --paper:#ffffff;
+  --on-dark:#f4efec; --on-dark-2:#c9c1bc;
+  --f-display:"Poppins", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --f-body:"Poppins", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --gut:clamp(20px,5vw,72px); --max:1240px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(72px,10vw,128px)}
+.eyebrow{font-size:12.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.on-dark .eyebrow{color:#e09a7c}
+em.it{font-style:italic;font-weight:300}
+.h2{font-size:clamp(34px,4.6vw,58px);font-weight:300}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--ink-2);max-width:60ch;font-weight:300}
+.btn{display:inline-flex;align-items:center;gap:12px;font:500 14px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:18px 28px;border-radius:999px;border:1px solid transparent;transition:background .25s ease,color .25s ease,border-color .25s ease;cursor:pointer}
+.btn-solid{background:var(--terra);color:#fff}
+.btn-solid:hover{background:var(--terra-deep)}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn .arr{width:18px;height:1px;background:currentColor;position:relative}
+.btn .arr::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+
+/* Ring motif (the open C, gap at top right) */
+.ring{position:absolute;pointer-events:none}
+.ring circle{fill:none;stroke-linecap:butt}
+
+/* Header */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .35s ease,box-shadow .35s ease}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px;transition:height .35s ease}
+.hdr .logo img{height:46px;width:auto;transition:height .35s ease}
+.hdr .logo .dark{display:none}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{color:#fff;text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;position:relative;padding-block:6px}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s ease}
+.nav a:not(.btn):hover::after{right:0}
+.nav .btn{padding:14px 22px;font-size:12.5px}
+.hdr.solid{background:rgba(255,255,255,.97);box-shadow:0 1px 0 var(--line)}
+.hdr.solid .wrap{height:72px}
+.hdr.solid .logo img{height:38px}
+.hdr.solid .logo .light{display:none}.hdr.solid .logo .dark{display:block}
+.hdr.solid .nav a:not(.btn){color:var(--ink)}
+.menu-btn{display:none;background:none;border:0;width:44px;height:44px;position:relative;cursor:pointer;color:#fff}
+.hdr.solid .menu-btn{color:var(--ink)}
+.menu-btn span{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .3s ease,top .3s ease}
+.menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:26px}
+body.menu-open .menu-btn span:nth-child(1){top:21px;transform:rotate(45deg)}
+body.menu-open .menu-btn span:nth-child(2){top:21px;transform:rotate(-45deg)}
+
+/* Hero */
+.hero{position:relative;min-height:min(92vh,880px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#20201f}
+.hero-img{position:absolute;inset:0;background:url(hero.webp) center 62%/cover no-repeat;transform:scale(1.06);animation:drift 22s ease-out forwards}
+@keyframes drift{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,16,15,.55) 0%,rgba(18,16,15,.12) 32%,rgba(18,16,15,.2) 55%,rgba(18,16,15,.82) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:160px 150px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;align-items:end}
+.hero h1{font-size:clamp(40px,6.2vw,84px);font-weight:300;letter-spacing:-.02em;line-height:1}
+.hero h1 em{font-weight:300}
+.hero p{font-size:clamp(17px,1.5vw,20px);font-weight:300;max-width:46ch;margin-top:26px;color:rgba(255,255,255,.88)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero .eyebrow{color:#f0b79f;margin-bottom:24px}
+.depart{background:rgba(20,18,17,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:26px;text-decoration:none;display:block;transition:background .3s ease}
+.depart:hover{background:rgba(20,18,17,.62)}
+.depart small{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#f0b79f}
+.depart strong{display:block;font-weight:400;font-size:23px;line-height:1.2;margin:10px 0 14px}
+.depart dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:14px;color:rgba(255,255,255,.8)}
+.depart dt{color:rgba(255,255,255,.55)}
+.depart dd{margin:0}
+
+/* Finder */
+.finder-wrap{position:relative;z-index:5;margin-top:-56px}
+.finder{background:#fff;border-radius:4px;box-shadow:0 24px 60px rgba(26,26,26,.14);display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:stretch}
+.finder label{display:flex;flex-direction:column;gap:4px;padding:22px 28px;border-right:1px solid var(--line);min-width:0}
+.finder label span{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.finder select{appearance:none;-webkit-appearance:none;border:0;background:transparent;font:400 18px/1.3 var(--f-body);color:var(--ink);padding:2px 22px 2px 0;cursor:pointer;width:100%;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 9px) 55%,calc(100% - 4px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.finder button{border-radius:0 4px 4px 0;padding-inline:38px}
+
+/* Intro */
+.intro{position:relative;overflow:hidden}
+.intro .grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,7vw,110px);align-items:center}
+.intro h2{font-size:clamp(30px,3.6vw,46px);font-weight:300;line-height:1.18}
+.intro h2 b{font-weight:400;color:var(--terra)}
+.intro .lead{margin-top:28px}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:92px minmax(0,1fr);gap:20px;align-items:baseline;padding-block:22px;border-bottom:1px solid var(--line)}
+.fact b{font-weight:300;font-size:40px;line-height:1;color:var(--terra)}
+.fact span{font-size:15.5px;color:var(--ink-2)}
+.ring{z-index:0}
+.intro .wrap,.words .wrap{position:relative;z-index:1}
+.intro .ring{right:-220px;top:-160px;width:480px;opacity:.45}
+.words .ring{opacity:.5}
+@media (max-width:900px){.intro .ring{right:-150px;top:-110px;width:280px;opacity:.35}.words .ring{width:300px;left:-140px;bottom:-150px}}
+
+/* Experiences */
+.exp{background:var(--terra-wash)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,60px)}
+.sec-head .h2{margin-top:18px}
+.sec-head p{max-width:44ch;color:var(--ink-2);font-weight:300}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{position:relative;aspect-ratio:3/4.3;border-radius:3px;overflow:hidden;color:#fff;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;isolation:isolate;max-width:100%}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(15,13,12,.82) 100%);transition:background .4s ease}
+.card:hover img{transform:scale(1.06)}
+.card .tag{position:absolute;top:22px;left:22px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--ink);padding:7px 12px;border-radius:999px}
+.card h3{font-size:clamp(24px,2.1vw,30px);font-weight:400}
+.card p{font-size:15px;line-height:1.5;color:rgba(255,255,255,.85);margin-top:10px;font-weight:300}
+.card .more{margin-top:18px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:10px;opacity:.9}
+.card .more i{display:block;width:26px;height:1px;background:currentColor;transition:width .35s ease}
+.card:hover .more i{width:44px}
+.card.pulse{outline:2px solid var(--terra);outline-offset:4px}
+
+/* Featured tour */
+.feat .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:center}
+.feat-img{position:relative}
+.feat-img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
+.feat-img .inset{position:absolute;right:-28px;bottom:-36px;width:46%;aspect-ratio:1;object-fit:cover;border:8px solid #fff;border-radius:3px;box-shadow:0 20px 40px rgba(0,0,0,.12)}
+.feat h2{margin-top:18px}
+.feat .lead{margin-top:24px}
+.meta{display:flex;flex-wrap:wrap;gap:0;margin-top:32px;border-block:1px solid var(--line)}
+.meta div{flex:1 1 120px;padding:18px 20px 18px 0}
+.meta div+div{padding-left:20px;border-left:1px solid var(--line)}
+.meta b{display:block;font-weight:300;font-size:30px;line-height:1.1}
+.meta span{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.incl{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+.incl li{position:relative;padding-left:30px;color:var(--ink-2);font-size:16px}
+.incl li::before{content:"";position:absolute;left:0;top:.5em;width:13px;height:13px;border:1.5px solid var(--terra);border-radius:50%;border-top-color:transparent;transform:rotate(-45deg)}
+.feat .price{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:36px}
+.feat .price small{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.feat .price strong{font-weight:400;font-size:22px}
+
+/* Itinerary */
+.itin{margin-top:clamp(70px,9vw,110px)}
+.itin-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.itin-head h3{font-size:clamp(24px,2.4vw,32px);font-weight:300}
+.itin-head p{font-size:14px;color:var(--grey)}
+.track{display:grid;grid-template-columns:repeat(8,minmax(210px,1fr));gap:0;overflow-x:auto;scroll-snap-type:x mandatory;border-top:1px solid var(--ink);scrollbar-width:thin}
+.day{scroll-snap-align:start;padding:22px 22px 26px 0;position:relative}
+.day::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:#fff;border:1.5px solid var(--ink)}
+.day.hi::before{background:var(--terra);border-color:var(--terra)}
+.day small{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);display:block;margin-top:6px}
+.day b{display:block;font-weight:500;font-size:16.5px;margin:8px 0 6px;line-height:1.3}
+.day p{font-size:14.5px;line-height:1.55;color:var(--ink-2);font-weight:300}
+
+/* Extensions */
+.ext{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(60px,8vw,90px)}
+.ext a{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:center;text-decoration:none;padding:14px;border:1px solid var(--line);border-radius:3px;transition:border-color .25s ease,background .25s ease}
+.ext a:hover{border-color:var(--terra);background:var(--terra-wash)}
+.ext img{width:110px;height:86px;object-fit:cover;border-radius:2px}
+.ext small{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+.ext b{display:block;font-weight:400;font-size:17px;line-height:1.3;margin-top:4px}
+
+/* Why Rwanda */
+.why{position:relative;color:var(--on-dark);background:#171615;overflow:hidden}
+.why-bg{position:absolute;inset:0;background:url(kigali.webp) center/cover;opacity:.32}
+.why::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,22,21,.96) 0%,rgba(23,22,21,.82) 45%,rgba(23,22,21,.55) 100%)}
+.why .wrap{position:relative;z-index:2}
+.why .h2{color:#fff;margin-top:18px;max-width:16ch}
+.why .lead{color:var(--on-dark-2);margin-top:22px}
+.reasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.14);margin-top:clamp(44px,6vw,70px);border:1px solid rgba(255,255,255,.14)}
+.reason{background:rgba(23,22,21,.86);padding:32px 30px 36px;min-width:0}
+.reason .n{font-size:13px;letter-spacing:.2em;color:#e09a7c}
+.reason h3{font-size:22px;font-weight:400;margin:16px 0 10px;color:#fff}
+.reason p{font-size:15px;color:var(--on-dark-2);font-weight:300;line-height:1.6}
+
+/* Sport for good */
+.good .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,90px);align-items:center}
+.good .stack{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.good .stack img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.good .stack img:first-child{grid-column:1/-1;aspect-ratio:16/10}
+.good .stack img:not(:first-child){aspect-ratio:1}
+.good h2{margin-top:18px}
+.good .lead{margin-top:24px}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.figs b{display:block;font-weight:300;font-size:clamp(34px,3.6vw,46px);line-height:1;color:var(--terra)}
+.figs span{display:block;font-size:14px;color:var(--ink-2);margin-top:10px;line-height:1.45}
+
+/* Testimonials */
+.words{background:var(--terra-tint);position:relative;overflow:hidden}
+.words .ring{left:-160px;bottom:-200px;width:520px}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(30px,5vw,72px);position:relative}
+blockquote{margin:0}
+blockquote p{font-size:clamp(20px,2vw,25px);font-weight:300;line-height:1.5;color:var(--ink)}
+blockquote p::before{content:"\201C";display:block;font-size:72px;line-height:.6;color:var(--terra);margin-bottom:18px;font-weight:400}
+blockquote footer{margin-top:24px;font-size:14px;color:var(--ink-2)}
+blockquote footer b{display:block;font-weight:500;color:var(--ink);font-size:15.5px}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(120px,15vw,210px);gap:10px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+.g1{grid-column:span 2;grid-row:span 2}.g2{grid-column:span 2}.g3{grid-column:span 2}.g4{grid-column:span 1}.g5{grid-column:span 1}.g6{grid-column:span 2}
+
+/* Enquire */
+.enq{position:relative;color:#fff;background:#1d1b1a;overflow:hidden}
+.enq-bg{position:absolute;inset:0;background:url(sunset.webp) center 40%/cover;opacity:.5}
+.enq::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,27,26,.45),rgba(29,27,26,.9))}
+.enq .wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,90px);align-items:start}
+.enq .h2{color:#fff;margin-top:18px}
+.enq .lead{color:var(--on-dark-2);margin-top:22px}
+.enq .note{margin-top:34px;font-size:14.5px;color:var(--on-dark-2);display:grid;gap:6px}
+.enq .note b{color:#fff;font-weight:500}
+form.f{background:#fff;color:var(--ink);border-radius:4px;padding:clamp(26px,3.4vw,44px);display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.f label{display:grid;gap:7px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);min-width:0}
+.f .full{grid-column:1/-1}
+.f input,.f select,.f textarea{font:400 16px/1.4 var(--f-body);color:var(--ink);border:0;border-bottom:1px solid #cfc6c1;padding:10px 0;background:transparent;border-radius:0;width:100%;letter-spacing:normal;text-transform:none}
+.f textarea{resize:vertical;min-height:96px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-bottom-color:var(--terra)}
+.f .row{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:8px}
+.f .row small{font-size:13px;color:var(--grey);max-width:34ch}
+.f .ok{grid-column:1/-1;background:var(--terra-wash);border-left:2px solid var(--terra);padding:14px 16px;font-size:15px}
+
+/* Footer */
+.ftr{background:#121111;color:var(--on-dark-2);padding-block:clamp(60px,8vw,90px) 28px;font-size:15px}
+.ftr .top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
+.ftr .top img{height:52px;width:auto}
+.ftr .top p{margin-top:22px;max-width:32ch;font-weight:300}
+.ftr h4{font:500 12px/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:#fff;margin:6px 0 20px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ftr a{text-decoration:none;transition:color .2s ease}
+.ftr a:hover{color:#fff}
+.coords{font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.ftr .bottom{margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13.5px}
+.f-built{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.38);text-decoration:none;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:color .2s ease}
+.f-built:hover{color:rgba(255,255,255,.8)}
+.f-built span{display:inline-block;width:16px;height:16px;border-radius:50%;overflow:hidden;flex-shrink:0}
+.f-built img{width:100%;height:100%;object-fit:cover;filter:invert(1)}
+
+/* Reveal (content visible at rest; only nudges in) */
+@media (prefers-reduced-motion:no-preference){
+  .rv{transition:transform 1s cubic-bezier(.16,1,.3,1),opacity 1s ease}
+  .rv.pre{transform:translateY(24px);opacity:.001}
+}
+@media (prefers-reduced-motion:reduce){.hero-img{animation:none;transform:none}html{scroll-behavior:auto}}
+
+/* Responsive */
+@media (max-width:1080px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{aspect-ratio:4/4.4}
+  .ext{grid-template-columns:1fr}
+  .reasons{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ftr .top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .nav{position:fixed;inset:0;top:0;background:var(--ink);flex-direction:column;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:opacity .3s ease;padding:env(safe-area-inset-top,0px) 24px 0}
+  .nav a:not(.btn){font-size:20px;color:#fff!important}
+  body.menu-open .nav{opacity:1;pointer-events:auto}
+  body.menu-open .menu-btn{color:#fff;z-index:2}
+  body.menu-open .hdr .logo{position:relative;z-index:2}
+  body.menu-open .hdr .logo .light{display:block}body.menu-open .hdr .logo .dark{display:none}
+  .hero .wrap{grid-template-columns:1fr;padding-block:140px 120px}
+  .hero::after{background:linear-gradient(180deg,rgba(18,16,15,.6) 0%,rgba(18,16,15,.5) 40%,rgba(18,16,15,.72) 70%,rgba(18,16,15,.9) 100%)}
+  .depart{max-width:420px}
+  .finder{grid-template-columns:1fr 1fr}
+  .finder label{border-bottom:1px solid var(--line)}
+  .finder label:nth-child(2){border-right:0}
+  .finder button{grid-column:1/-1;border-radius:0 0 4px 4px;justify-content:center;padding-block:20px}
+  .intro .grid,.feat .grid,.good .grid,.enq .wrap{grid-template-columns:1fr}
+  .feat-img{margin-right:20px}
+  .feat-img img{aspect-ratio:4/3.4}
+  .feat-img .inset{right:-20px;bottom:-28px;width:38%}
+  .quotes{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(130px,38vw,240px)}
+  .g1{grid-column:span 2;grid-row:span 1}.g2,.g3,.g6{grid-column:span 2}.g4,.g5{grid-column:span 1}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .hdr .wrap{height:74px}
+  .hdr .logo img{height:38px}
+  .finder{grid-template-columns:1fr}
+  .finder label{border-right:0}
+  .cards{grid-template-columns:1fr}
+  .card{aspect-ratio:4/4.2}
+  .reasons{grid-template-columns:1fr}
+  .reason{padding:26px 22px 28px}
+  .figs{grid-template-columns:1fr;gap:22px}
+  .figs > div{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:baseline;gap:14px}
+  .figs span{margin-top:0}
+  form.f{grid-template-columns:1fr}
+  .fact{grid-template-columns:76px minmax(0,1fr)}
+  .fact b{font-size:32px}
+  .ftr .top{grid-template-columns:1fr}
+  .meta div{flex-basis:30%}
+  .meta div+div{padding-left:14px}
+  .meta b{font-size:24px}
+  .ext a{grid-template-columns:88px minmax(0,1fr)}
+  .ext img{width:88px;height:72px}
+}
+</style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Kinetica Travel home">
+      <img class="light" src="logo-white.webp" alt="Kinetica Travel" width="420" height="137">
+      <img class="dark" src="logo-colour.webp" alt="Kinetica Travel" width="420" height="137">
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#tours">Tours</a>
+      <a href="#cup">CBH Cup 2027</a>
+      <a href="#rwanda">Why Rwanda</a>
+      <a href="#good">Sport for good</a>
+      <a class="btn btn-solid" href="#enquire">Enquire</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-img" role="img" aria-label="Gahanga Cricket Stadium in Kigali, with its brick vaulted pavilion"></div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Active travel from Kigali</span>
+        <h1>Sport and safari in the <em class="it">land of a thousand hills</em></h1>
+        <p>Cricket at Africa's most beautiful ground, golf above Kigali, and mountain gorillas in the Virunga forests. Small group tours across Rwanda, planned and hosted by people who live there.</p>
+        <div class="ctas">
+          <a class="btn btn-solid" href="#tours">Explore tours <i class="arr"></i></a>
+          <a class="btn btn-ghost" href="#enquire">Plan a private trip</a>
+        </div>
+      </div>
+      <a class="depart" href="#cup">
+        <small>Next departure</small>
+        <strong>The Cricket Builds Hope Cup</strong>
+        <dl>
+          <dt>When</dt><dd>September 2027</dd>
+          <dt>Length</dt><dd>8 days, 7 nights</dd>
+          <dt>Base</dt><dd>Kigali, Rwanda</dd>
+        </dl>
+      </a>
+    </div>
+  </section>
+
+  <div class="finder-wrap">
+    <div class="wrap">
+      <form class="finder" id="finder" aria-label="Find a tour">
+        <label for="fx"><span>Experience</span>
+          <select id="fx">
+            <option value="cricket">Cricket tours</option>
+            <option value="golf">Golf in Kigali</option>
+            <option value="hiking">Gorillas and hiking</option>
+            <option value="safari">Akagera safari</option>
+          </select>
+        </label>
+        <label for="fm"><span>When</span>
+          <select id="fm">
+            <option>September 2027</option>
+            <option>Any time in 2027</option>
+            <option>I'm flexible</option>
+          </select>
+        </label>
+        <label for="fg"><span>Group</span>
+          <select id="fg">
+            <option>Full squad (12 to 16)</option>
+            <option>Small group (4 to 11)</option>
+            <option>Couple or family</option>
+          </select>
+        </label>
+        <button class="btn btn-solid" type="submit">Find your tour</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="band intro">
+    <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" stroke="#F3E4DD" stroke-width="9" stroke-dasharray="205 46.3" transform="rotate(-12 50 50)"/></svg>
+    <div class="wrap grid">
+      <div class="rv">
+        <span class="eyebrow">Kinetica Travel</span>
+        <h2 style="margin-top:22px">We build trips around the thing you love to do, then add <b>the Rwanda</b> you came to see.</h2>
+        <p class="lead">A week of cricket ends with lions on the Akagera plains. A golf break finishes at a gorilla family in the volcanoes. Every tour is run from our base in Kigali, with our own hosts, drivers and guides on the ground from arrival to departure.</p>
+      </div>
+      <div class="facts rv">
+        <div class="fact"><b>No.1</b><span>in sub-Saharan Africa for perceived personal safety (Gallup)</span></div>
+        <div class="fact"><b>0</b><span>visas needed for UK passport holders</span></div>
+        <div class="fact"><b>1</b><span>direct overnight flight from London to Kigali</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band exp" id="tours">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><span class="eyebrow">Experiences</span><h2 class="h2">Choose your <em class="it">game</em></h2></div>
+        <p>Each tour can run as a group departure or be shaped around your club, society or family. Mix and match as you like.</p>
+      </div>
+      <div class="cards">
+        <a class="card rv" href="#cup" data-k="cricket">
+          <img src="rwanda-xi.webp" alt="Rwanda cricketers in a team huddle" loading="lazy">
+          <span class="tag">Group tours</span>
+          <h3>Cricket tours</h3>
+          <p>Matches at Gahanga and Kicukiro against strong local sides, with coaching in the community.</p>
+          <span class="more">View the tour <i></i></span>
+        </a>
+        <a class="card rv" href="#enquire" data-k="golf">
+          <img src="golf.webp" alt="Fairway at Kigali Golf Course with the city behind" loading="lazy">
+          <span class="tag">2 to 5 days</span>
+          <h3>Golf in Kigali</h3>
+          <p>Eighteen holes on the hills of the capital, with a round easily added to any itinerary.</p>
+          <span class="more">Ask about golf <i></i></span>
+        </a>
+        <a class="card rv" href="#enquire" data-k="hiking">
+          <img src="gorilla.webp" alt="Silverback mountain gorilla in dense forest" loading="lazy">
+          <span class="tag">2 days</span>
+          <h3>Gorillas and hiking</h3>
+          <p>Trek to a habituated gorilla family in Volcanoes National Park, then rest on the shores of Lake Kivu.</p>
+          <span class="more">Ask about treks <i></i></span>
+        </a>
+        <a class="card rv" href="#enquire" data-k="safari">
+          <img src="lions.webp" alt="Three lionesses walking through long grass" loading="lazy">
+          <span class="tag">1 to 2 days</span>
+          <h3>Akagera safari</h3>
+          <p>Big Five game drives in Rwanda's savannah park, with lunch by the lakes and an optional boat trip.</p>
+          <span class="more">Ask about safari <i></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band feat" id="cup">
+    <div class="wrap">
+      <div class="grid">
+        <div class="feat-img rv">
+          <img src="teams.webp" alt="Touring team and Rwanda Emerging XI in front of the Gahanga pavilion" loading="lazy">
+          <img class="inset" src="gorilla-ball.webp" alt="Mountain gorilla resting beside a cricket ball" loading="lazy">
+        </div>
+        <div class="rv">
+          <span class="eyebrow">Featured tour · September 2027</span>
+          <h2 class="h2">The Cricket Builds Hope Cup</h2>
+          <p class="lead">A week long tournament at the Gahanga Cricket Stadium, the ground the ICC calls the jewel in the crown of African cricket. Touring sides play four matches, coach young Rwandan players and see the country between games.</p>
+          <div class="meta">
+            <div><b>8</b><span>Days</span></div>
+            <div><b>4</b><span>Matches</span></div>
+            <div><b>7</b><span>Nights in Kigali</span></div>
+          </div>
+          <ul class="incl">
+            <li>Direct return flights with RwandAir</li>
+            <li>Seven nights in a 3.5 star hotel with pool, bed and breakfast</li>
+            <li>Four matches with lunch, balls and officials, at least two at Gahanga</li>
+            <li>All airport, match and city tour transfers</li>
+            <li>Opening and closing dinners</li>
+          </ul>
+          <div class="price">
+            <div><small>Price per person</small><strong>On request</strong></div>
+            <a class="btn btn-line" href="#enquire">Request the tour pack <i class="arr"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="itin rv">
+        <div class="itin-head">
+          <h3>Illustrative itinerary</h3>
+          <p>Saturday to Saturday. Scroll for the full week.</p>
+        </div>
+        <div class="track" tabindex="0" aria-label="Day by day itinerary">
+          <div class="day"><small>Day 1 · Sat</small><b>Arrive in Kigali</b><p>City tour with the Genocide Memorial and lunch at Hotel Rwanda, then a briefing and welcome dinner at Gahanga.</p></div>
+          <div class="day hi"><small>Day 2 · Sun</small><b>Opening match</b><p>First game at the Gahanga Stadium, boundary drinks with the opposition, then dinner in town.</p></div>
+          <div class="day"><small>Day 3 · Mon</small><b>Second match</b><p>Gahanga or the Kicukiro University Ground. A swim and a sundowner after play.</p></div>
+          <div class="day"><small>Day 4 · Tue</small><b>Akagera National Park</b><p>Early start for a Big Five game drive and lunch beside one of the park's lakes.</p></div>
+          <div class="day"><small>Day 5 · Wed</small><b>Golf and coaching</b><p>A round at Kigali Golf Course or a slow coffee morning, then coaching at a local school or hub.</p></div>
+          <div class="day hi"><small>Day 6 · Thu</small><b>Final group match</b><p>The last round robin game decides the finalists. Dinner at the city's best grill.</p></div>
+          <div class="day hi"><small>Day 7 · Fri</small><b>Finals Day</b><p>Play for the trophy, then the closing dinner at Eagle View Lodge above the city.</p></div>
+          <div class="day"><small>Day 8 · Sat</small><b>Umuganda and home</b><p>Join the monthly community service day, shop for Rwandan crafts, then the overnight flight to London.</p></div>
+        </div>
+      </div>
+
+      <div class="ext">
+        <a href="#enquire" class="rv"><img src="safari.webp" alt="Guests on an open safari vehicle" loading="lazy"><div><small>Optional extra</small><b>Day safari to Akagera</b></div></a>
+        <a href="#enquire" class="rv"><img src="lions.webp" alt="Lionesses in Akagera" loading="lazy"><div><small>Optional extra</small><b>Two day Akagera safari and boat trip</b></div></a>
+        <a href="#enquire" class="rv"><img src="gorilla-hill.webp" alt="Gorilla on a green hillside" loading="lazy"><div><small>Optional extra</small><b>Two day gorillas and Lake Kivu</b></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band why on-dark" id="rwanda">
+    <div class="why-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow">Why Rwanda</span>
+      <h2 class="h2">Clean, green and <em class="it">easy to love</em></h2>
+      <p class="lead">Compact enough to see a lot in a week, safe enough to relax, and still one of the least crowded places to see gorillas and the Big Five.</p>
+      <div class="reasons">
+        <div class="reason rv"><span class="n">01</span><h3>Safe and welcoming</h3><p>Ranked first in sub-Saharan Africa for perceived personal safety, with famously warm hospitality.</p></div>
+        <div class="reason rv"><span class="n">02</span><h3>Easy to reach</h3><p>Visa free for UK passport holders, with direct overnight flights from London to Kigali.</p></div>
+        <div class="reason rv"><span class="n">03</span><h3>Easy to explore</h3><p>Short distances and good roads, so a game drive or a trek fits between matches.</p></div>
+        <div class="reason rv"><span class="n">04</span><h3>Gorillas and the Big Five</h3><p>Mountain gorillas in the Virunga volcanoes, savannah in Akagera, lakes and rainforest in between.</p></div>
+        <div class="reason rv"><span class="n">05</span><h3>A modern capital</h3><p>Kigali is known for its clean streets, good restaurants and a lively coffee culture.</p></div>
+        <div class="reason rv"><span class="n">06</span><h3>A remarkable story</h3><p>A country defined by renewal, with women holding 63.75% of seats in Parliament, the highest share in the world.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band good" id="good">
+    <div class="wrap grid">
+      <div class="stack rv">
+        <img src="kids.webp" alt="Young Rwandan cricketers cheering on the boundary" loading="lazy">
+        <img src="coaching.webp" alt="Children batting at a coaching session on a hillside ground" loading="lazy">
+        <img src="handshake.webp" alt="Players shaking hands at the end of a match" loading="lazy">
+      </div>
+      <div class="rv">
+        <span class="eyebrow">Sport for good</span>
+        <h2 class="h2">Cricket that <em class="it">gives back</em></h2>
+        <p class="lead">Cricket in Rwanda was started after 1994 by Rwandans returning from neighbouring countries. Today it supports women's and youth empowerment across the country. Every Kinetica cricket tour includes a coaching session with young players, and part of each tour supports the game at grassroots level.</p>
+        <div class="figs">
+          <div><b>80k+</b><span>players across the country</span></div>
+          <div><b>20+</b><span>clubs, with four international grounds</span></div>
+          <div><b>24th</b><span>world ranking for Rwanda's women's side</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band words">
+    <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" stroke="#ead2c7" stroke-width="9" stroke-dasharray="205 46.3" transform="rotate(-12 50 50)"/></svg>
+    <div class="wrap">
+      <div class="sec-head rv"><div><span class="eyebrow">From touring sides</span><h2 class="h2">Tours that <em class="it">stay with you</em></h2></div></div>
+      <div class="quotes">
+        <blockquote class="rv"><p>We've toured Rwanda twice and it's incredible. The Gahanga Stadium is beautiful, the cricket is challenging and there's so much to do and see in the country. The tour experience was seamless from start to finish.</p><footer><b>George Dean</b>Chairman, Cambridge to Casablanca Cycling Cricket Club</footer></blockquote>
+        <blockquote class="rv"><p>It was just the most extraordinary week. We had a wonderful time and learnt a huge amount, and there's some serious, raw talent in Rwanda!</p><footer><b>Quinton Newcomb</b>Tour Captain, The Grannies Cricket Club</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Gallery">
+    <div class="wrap">
+      <div class="gallery">
+        <img class="g1 rv" src="stadium-aerial.webp" alt="Aerial view of Gahanga Cricket Stadium among green hills" loading="lazy">
+        <img class="g2 rv" src="kigali-night.webp" alt="Kigali Convention Centre lit up at night" loading="lazy">
+        <img class="g3 rv" src="dinner.webp" alt="Touring party at a long dinner table" loading="lazy">
+        <img class="g4 rv" src="boundary.webp" alt="Players relaxing on the pavilion terrace" loading="lazy">
+        <img class="g5 rv" src="gorilla-hill.webp" alt="Gorilla on a hillside" loading="lazy">
+        <img class="g6 rv" src="safari.webp" alt="Safari vehicle in Akagera" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="band enq on-dark" id="enquire">
+    <div class="enq-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Enquire</span>
+        <h2 class="h2">Start planning your <em class="it">Rwanda tour</em></h2>
+        <p class="lead">Tell us about your group and what you'd like to do. We'll come back with a tailored itinerary and price.</p>
+        <div class="note"><span><b>Based in</b> Kigali, Rwanda</span><span><b>Replies</b> within two working days</span></div>
+      </div>
+      <form class="f" id="enqForm" novalidate>
+        <label for="e-name">Name<input id="e-name" name="name" autocomplete="name" required></label>
+        <label for="e-email">Email<input id="e-email" name="email" type="email" autocomplete="email" required></label>
+        <label for="e-club">Club or group<input id="e-club" name="club" placeholder="Optional"></label>
+        <label for="e-size">Group size<select id="e-size" name="size"><option>12 to 16</option><option>4 to 11</option><option>2 or 3</option><option>17 or more</option></select></label>
+        <label for="e-int" class="full">Interested in<select id="e-int" name="interest"><option>The Cricket Builds Hope Cup 2027</option><option>A private cricket tour</option><option>Golf in Kigali</option><option>Gorillas and hiking</option><option>Akagera safari</option><option>Something else</option></select></label>
+        <label for="e-msg" class="full">Message<textarea id="e-msg" name="message" placeholder="Dates, ideas, anything we should know"></textarea></label>
+        <div class="row"><small>We only use your details to reply to your enquiry.</small><button class="btn btn-solid" type="submit">Send enquiry <i class="arr"></i></button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <img src="logo-white.webp" alt="Kinetica Travel" width="420" height="137" loading="lazy">
+        <p>Active travel across Rwanda and East Africa: cricket, golf, hiking and wildlife.</p>
+      </div>
+      <div><h4>Tours</h4><ul><li><a href="#cup">CBH Cup 2027</a></li><li><a href="#tours">Cricket tours</a></li><li><a href="#tours">Golf in Kigali</a></li><li><a href="#tours">Gorillas and hiking</a></li></ul></div>
+      <div><h4>Kinetica</h4><ul><li><a href="#rwanda">Why Rwanda</a></li><li><a href="#good">Sport for good</a></li><li><a href="#enquire">Enquire</a></li></ul></div>
+      <div><h4>Find us</h4><ul><li>Kigali, Rwanda</li><li class="coords">1°57′S 30°04′E</li></ul></div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="yr">2026</span> Kinetica Travel</span>
+      <a class="f-built" href="https://dotxrepresentative.com" target="_blank" rel="noopener noreferrer"><span><img src="dotx-mark.png" alt="dot.x" width="16" height="16"></span>Built by dot.x</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>40)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  var btn=document.getElementById('menuBtn');
+  btn.addEventListener('click',function(){
+    var open=document.body.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('menu-open');btn.setAttribute('aria-expanded','false')})});
+
+  document.getElementById('finder').addEventListener('submit',function(e){
+    e.preventDefault();
+    var k=document.getElementById('fx').value;
+    var target=k==='cricket'?document.getElementById('cup'):document.querySelector('.card[data-k="'+k+'"]');
+    document.querySelectorAll('.card.pulse').forEach(function(c){c.classList.remove('pulse')});
+    if(k!=='cricket'&&target){target.classList.add('pulse');setTimeout(function(){target.classList.remove('pulse')},2600)}
+    (target||document.getElementById('tours')).scrollIntoView({behavior:'smooth',block:k==='cricket'?'start':'center'});
+  });
+
+  var f=document.getElementById('enqForm');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=f.querySelector('#e-name'),m=f.querySelector('#e-email');
+    if(!n.value.trim()){n.focus();return}
+    if(!/.+@.+[.].+/.test(m.value)){m.focus();return}
+    var old=f.querySelector('.ok');if(old)old.remove();
+    var ok=document.createElement('p');ok.className='ok';
+    ok.textContent='Thanks '+n.value.trim().split(' ')[0]+'. This is a preview of the site, so enquiries are not being sent yet.';
+    f.appendChild(ok);
+  });
+
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var els=[].slice.call(document.querySelectorAll('.rv'));
+    var vh=window.innerHeight;
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){if(el.getBoundingClientRect().top>vh){el.classList.add('pre');io.observe(el)}});
+  }
+})();
+</script>
+</body>
+</html>
